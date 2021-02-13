@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+		<link
+			crossorigin="anonymous"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+			integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+			rel="stylesheet"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+		/>
+
+		{% if page.title %}
+		<title>{{ site.title }} | {{ page.title }}</title>
+		{% endif %}
+	</head>
+	<body class="d-flex flex-column min-vh-100">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container">
+				<a class="navbar-brand" href="/">Tobias' Dev Blog</a>
+				<button
+					aria-controls="navbarTop"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+					class="navbar-toggler"
+					data-bs-target="#navbarTop"
+					data-bs-toggle="collapse"
+					type="button"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarTop">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a aria-current="page" class="nav-link active" href="/"
+								>Recent Posts</a
+							>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/about">About</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<hr />
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-lg-3">
+					<nav class="navbar navbar-light bg-light sticky-top mx-auto">
+						<div class="container-fluid">
+							<a class="navbar-brand" href="/">
+								<img
+									class="float-start mb-sm-2 mb-md-2 mb-lg-4 img-fluid img-circle rounded-circle"
+									src="/assets/img/logo-photo.jpeg"
+							/></a>
+							<div class="row mt-sm-2 mt-md-3 mt-lg-2">
+								<div class="col">
+									<p>
+										<span class="text-dark">
+											{{ site.who }}
+										</span>
+									</p>
+								</div>
+							</div>
+							<ul class="navbar-nav mx-auto">
+								<li class="nav-item d-flex">
+									<div class="flex-row justify-content-around">
+										<i class="bi-linkedin"></i>
+										<a
+											href=" {{
+												site.linkedin | prepend: 'https://linkedin.com/in/'
+											}}"
+											target="_blank"
+											>Linkedin</a
+										>
+									</div>
+								</li>
+								<li class="nav-item d-flex">
+									<div class="flex-row justify-content-around">
+										<i class="bi-github"></i>
+										<a
+											href="{{ site.github | prepend: 'https://github.com/' }}"
+											target="_blank"
+											>GitHub</a
+										>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+				<main class="d-flex flex-column col-md-9 col-lg-9">
+					{{ content }}
+				</main>
+			</div>
+		</div>
+
+		<footer class="footer mt-auto bg-light p-5">
+			<div class="container">&copy; 2021 - Tobias' Dev Blog</div>
+		</footer>
+
+		<script
+			crossorigin="anonymous"
+			integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		></script>
+	</body>
+</html>

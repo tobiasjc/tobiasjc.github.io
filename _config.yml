@@ -1,0 +1,22 @@
+title: "Tobias's blog"
+email: "tobias.jc07@gmail.com"
+
+description: >-
+  A blog from tobiasjc
+
+who: >-
+  Backend developer focused on algorithm optmization,
+  big data, data processing and database management.
+  I take other studying fields as a hobby. (:
+# baseurl: "/"
+url: "https://tobiasjc.github.io"
+github: tobiasjc
+linkedin: tobiasjc
+
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+theme: tobiasjc.github.io
+plugin:
+  - jekyll-feed
+  - jekyll-paginate

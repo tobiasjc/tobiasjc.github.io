@@ -1,0 +1,44 @@
+---
+layout: default
+title: Recent Posts
+---
+
+<!-- This loops through the paginated posts -->
+<ul class="list-group list-group-flush">
+	{% for post in paginator.posts %}
+	<a href="{{ post.url }}" class="list-group-item p-sm-2 p-md-2 p-lg-2 list-group-item-action text-dark">
+			<div class="card-body" data-bs-toggle="tooltip">
+		<h3>{{ post.title }}</h1>
+			<span class="text-secondary">
+			{% if post.categories.size > 1  %}
+				categories:	
+			{% else %}
+				category:
+			{% endif %}
+			{{ post.categories | join: ", " }}
+		</span>
+		<div class="content">{{ post.abstract }}</div>
+		</div>
+	</a>
+	{% endfor %}
+</ul>
+
+{% for post in paginator.posts %}
+
+{% endfor %}
+
+<!-- Pagination links -->
+<div class="pagination mt-5 mb-5 bg-light justify-content-center">
+	<span class="me-3">Page </span>
+	<div id="pagination-controls" class="me-2 ms-2">
+	{% if paginator.previous_page %}
+	<a href="{{ paginator.previous_page_path }}" class="previous"> &lt; </a>
+	{% else %} {% endif %}
+	<span class="page_number">
+		{{ paginator.page }} / {{ paginator.total_pages }}
+	</span>
+	{% if paginator.next_page %}
+	<a href="{{ paginator.next_page_path }}" class="next"> &gt; </a>
+	{% endif %}
+</div>
+</div>
