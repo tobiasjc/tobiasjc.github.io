@@ -2,4 +2,33 @@
 layout: default
 ---
 
-{{ content }}
+<hr />
+{% assign thread_posts = site.posts | where: "thread", page.thread | reverse %}
+{% if thread_posts.size > 1 and page.thread %}
+    <div class="d-flex justify-content-center mx-auto mb-5">
+        <div class="flex-column">
+            <p class="text-center">Articles from the <mark><strong>{{ page.thread }}</strong></mark> thread:<br></p>
+            <ul class="list-group text-center">
+                {% for post in thread_posts %}
+                    {% if page.title == post.title %}
+                    <li class="list-group-item list-group-item-light bg-light text-muted">
+                        {{ post.index }} - {{post.title}} <br>
+                    </li>
+                    {% else %}
+                    <li class="list-group-item">
+                        {{ post.index }} - <a class="stretched-link" href="{{post.url}}">{{post.title}}</a> <br>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <h1 class="text-center">{{ page.index }} - {{ page.title }}</h1>
+    {% else %}
+    <h1 class="text-center">{{ page.title }}</h1>
+{% endif %}
+
+<hr />
+<div class="container">
+    {{ content }}
+</div>

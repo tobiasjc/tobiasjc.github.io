@@ -1,18 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+---
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css">
-</head>
+<div class="d-flex justify-content-center mx-auto">
+    <ul class="list-group-flush">
+        {% for post in paginator.posts %}
+        <li class="list-group-item m-1">
+            <div class="d-flex w-100 justify-content-between">
+                <div class="flex-column">
+                    {% if post.thread %}
+                        <div class="flex-row">
+                            <h3><a class="stretched-link" href="{{ post.url }}">{{ post.title }}</a></h3>
+                        </div>
+                    {% endif %}
+                    <div class="flex-row">
+                        <small><mark>from:</mark> {{ post.date | date: "%-d %B %Y" }}</small>
+                    </div>
+                    <div class="flex-row">
+                        <small><mark>categories:</mark> {{ post.categories | join: ", " }}</small>
+                    </div>
+                    {% if post.thread %}
+                        <div class="flex-row">
+                            <small><mark>thread:</mark> {{ post.thread }}</small>, <small><mark>index:</mark> {{ post.index }}</small>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 
-<body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"></script>
-</body>
+<br>
 
-</html>
+
+<div class="d-flex justify-content-center mx-auto">
+    <div class="flex-column">
+        <div class="flex-row">
+            page
+        </div>
+        <div class="flex-row">
+            {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path }}" class="previous">
+                <span class="back">&lt;</span>
+            </a>
+            {% endif %}
+
+            <span class="page_number ">
+                {{ paginator.page }} / {{ paginator.total_pages }}
+            </span>
+
+            {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}" class="next">
+                <span class="next">&gt;</span>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
