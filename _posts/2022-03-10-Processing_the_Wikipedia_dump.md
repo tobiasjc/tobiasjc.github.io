@@ -154,7 +154,7 @@ When processing the data, I chose to use the java built in [XML Stream Reader](h
 
 Obviously, when processing a 20GB+ Bzip2 archive, you'll not try to load it all into the memory, right? RIGHT? Okay. So having streammed operations like we've [already done when reading the file](#reading-it), and then processing the data step by step so we can extract information needed without searching for it - because the whole document has a well formatted schema - seems like the best choice. This is exactly what this XML Stream Reader gives us: a way to process the stream step by step, going from tag to tag, until we reach the end of each block and get ready for the next one.
 
-I've chosen to do so using `handle` methods to handle each kind of objects I have on this XML dump. I don't think it's very practical to display whole chunks of code here, since it might become extensive and tiring to read, so I'll display diagrams and explain them while trying to make sense of the code I've already written and that should guide you in the path of writing your own or just using mine.
+I've chosen to do so using `handle` methods for each kind of object I have on this XML dump. I don't think it's very practical to display whole chunks of code here, since it might become extensive and tiring to read, so I'll display diagrams and explain them while trying to make sense of the code I've already written and that should guide you in the path of writing your own or just using mine.
 
 Below is a diagram of how the `XML Stream Reader` and the `handle` thing should work for the `siteinfo` object, exactly as it is:
 
