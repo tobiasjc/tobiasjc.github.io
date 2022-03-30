@@ -55,7 +55,7 @@ The class [`Bzip2CompressorInputStream`](https://commons.apache.org/proper/commo
       ba
 ```
 
-The `synchronized` block there might be an indication what we're going to do, right? Yes, we're going to call this single method from multiple threads! That's why we create it inside an `object` and not a class, so it's static and the concurrent model takes place - one thread has access to read, while all others wait to get a piece of data to process. If you're big into computer science theory like me, you've probably seen it before on a computer architecture or distributed programming class before... yes, this goes into the [Flynn's Taxonomy on Single Instruction stream, Multiple Data streams [SIMD]](https://en.wikipedia.org/wiki/Flynn%27s_taxonomy#Single_instruction_stream,_multiple_data_streams_(SIMD)){:target="_blank"}.
+The `synchronized` block there might be an indication what we're going to do, right? Yes, we're going to call this single method from multiple threads! That's why we create it inside an `object` and not a class, so it's static and the concurrent model takes place - one thread has access to read, while all others wait to get a piece of data to process. If you're big into computer science theory like myself, you've probably seen it before on a computer architecture or distributed programming class before... yes, this goes into the [Flynn's Taxonomy on Single Instruction stream, Multiple Data streams [SIMD]](https://en.wikipedia.org/wiki/Flynn%27s_taxonomy#Single_instruction_stream,_multiple_data_streams_(SIMD)){:target="_blank"}.
 
 Making it easier: we have a single operation to apply over data that might be divided beforehand. The diagram below is how I usually see this kind of operation:
 
