@@ -228,7 +228,7 @@ I know it might seem confusing, but this is just a way to imagine the function e
 
 There are a lot of optimizations in the code, for example: no `dispatch` was called when sending the `siteinfo` or the `namespace`, and that's because it's not needed and much more practical for the operations to be done instantly since all the pages being inserted later need both of those operations to be in the database so the foreign keys are connected properly. So, in those cases, the `send` calls are actually SEND calls, no operation batch needed.
 
-Another example of those optimizations are those early returns that should instantly cut the function and return to the caller. Might not be much, but since we're dealing with ~20M pages, every instruction counts - and it would honestly be hard to not do it.
+Another example of those optimizations are those early returns that should instantly cut the function and return to the caller. Might not be much, but since we're dealing with ~20M pages, every instruction counts - and it would honestly be hard not to do it.
 
 All the careful treatment of `null` values is needed to extract valid information and also the invalid ones. When dealing with such data, usually coming from websites or raw user input (maybe not here since this data should be carefully managed by the Wikimedia friends), I've learned that we should never trust data and even with some errors we should let the code go ahead so we have something to analyze later - and beyond all of it, sometimes `null` is a valid entry.
 
