@@ -121,7 +121,7 @@ NOW, you have a processable entity by any XML Stream Reader that you get from a 
 
 So now we have a starting tag `<document>` and an ending tag `</document>`, as we should have in a well-formatted XML document.
 
-So, those are all the ins and outs I can think off when reading those streams in a proper way so they can be processed. The processing is rather interesting too, lets jump right into it.
+That's a lot, I know, but those are all the ins and outs I can think off when reading those streams in a proper way to be processed. The processing is rather interesting too, lets jump right into it.
 
 ## Writing it
 ------
