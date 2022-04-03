@@ -11,21 +11,39 @@ layout: default
             <ul class="list-group text-center">
                 {% for post in thread_posts %}
                     {% if page.title == post.title %}
-                    <li class="list-group-item list-group-item-light bg-light text-muted">
-                        {{ post.index }} - {{post.title}} <br>
-                    </li>
+                        <li class="list-group-item list-group-item-light bg-light text-muted">
+                            {{ post.index }} - {{post.title}} <br>
+                        </li>
                     {% else %}
-                    <li class="list-group-item">
-                        {{ post.index }} - <a class="stretched-link" href="{{post.url}}">{{post.title}}</a> <br>
-                    </li>
+                        <li class="list-group-item">
+                            {{ post.index }} - <a class="stretched-link" href="{{post.url}}">{{post.title}}</a> <small>
+                                {% if post.status == "done" %}
+                                    <sup class="bg-success" style="--bs-bg-opacity: .15">done</sup>
+                                {% else if post.status == "in-progress" %}
+                                    <sup class="bg-danger" style="--bs-bg-opacity: .15">in-progress</sup>
+                                {% endif %}
+                            </small>
+                        </li>
                     {% endif %}
                 {% endfor %}
             </ul>
         </div>
     </div>
-    <h1 class="text-center">{{ page.index }} - {{ page.title }}</h1>
-    {% else %}
-    <h1 class="text-center">{{ page.title }}</h1>
+    <h1 class="text-center">{{ page.index }} - {{ page.title }} <small>
+            {% if page.status == "done" %}
+                <sup class="bg-success" style="--bs-bg-opacity: .15">done</sup>
+            {% else if page.status == "in-progress" %}
+                <sup class="bg-danger" style="--bs-bg-opacity: .15">in-progress</sup>
+            {% endif %}
+        </small> </h1>
+{% else %}
+<h1 class="text-center">{{ page.title }} <small>
+    {% if page.status == "done" %}
+        <sup class="bg-success" style="--bs-bg-opacity: .15">done</sup>
+    {% else if page.status == "in-progress" %}
+        <sup class="bg-danger" style="--bs-bg-opacity: .15">in-progress</sup>
+    {% endif %}
+</small></h1>
 {% endif %}
 
 <hr />

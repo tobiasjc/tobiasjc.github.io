@@ -4,6 +4,7 @@ title: Understanding the Wikipedia Dump
 categories: data scala wikipedia
 thread: wikipedia processing
 index: 1
+status: done
 ---
 
 As a part of my work on [SearchOnMath](https://searchonmath.com){:target="_blank"}, I've always been in trying to find better ways to retrieve and process data, making sure it's in good shape for our powerful mathematical search engine. Wikipedia has always been a problem in such workflow, since the pages are written in a markup language called [Wikitext](https://en.wikipedia.org/wiki/Help:Wikitext){:target="_blank"}, which is not easy to understand or apply operations to.

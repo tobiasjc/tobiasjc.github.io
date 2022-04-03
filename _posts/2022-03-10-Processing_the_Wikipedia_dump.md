@@ -4,6 +4,7 @@ title: Processing the Wikipedia Dump
 categories: data scala wikipedia
 thread: wikipedia processing
 index: 2
+status: done
 ---
 
 Okay, we've already understood the Wikipedia dump format and that's great! But judging how much information we have inside of it, how can we process and index it in a more manageable way than a single XML file? This is exactly what we're going to do here: processing the bz2 archive. Yeah, the archive itself - more on it soon. So, for me, there are usually 3 steps into this whole "processing" phase:

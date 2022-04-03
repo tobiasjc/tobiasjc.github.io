@@ -11,7 +11,13 @@ title: Tobias' Blog
                 <div class="flex-column">
                     {% if post.thread %}
                         <div class="flex-row">
-                            <h3><a class="stretched-link" href="{{ post.url }}">{{ post.title }}</a></h3>
+                            <h3><a class="stretched-link" href="{{ post.url }}">{{ post.title }}</a> <small>
+                                {% if post.status == "done" %}
+                                    <sup class="bg-success" style="--bs-bg-opacity: .15">done</sup>
+                                {% else if post.status == "in-progress" %}
+                                    <sup class="bg-danger" style="--bs-bg-opacity: .15">in-progress</sup>
+                                {% endif %}
+                            </small> </h3>
                         </div>
                     {% endif %}
                     <div class="flex-row">
