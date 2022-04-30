@@ -161,7 +161,7 @@ Below is a diagram of how the `XML Stream Reader` and the `handle` thing should 
 
 ![Image description](/assets/images/processing-the-wikipedia-dump/handle-siteinfo.drawio.png){:class="mx-auto d-block img-fluid"}
 
-I know it might seem confusing, but this is just a way to imagine the function expressed as a flow chart, and most of the times it helps me get my head around some details. Let's follow the flow char step by step, with some code snippets:
+I know it might seem confusing, but this is just a way to imagine the function expressed as a flow chart, and most of the times it helps me wrap my head around some details. Let's follow the flow chart step by step, with some code snippets:
 
 1. create a new XML event reader, those are available globally inside this class
 
